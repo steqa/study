@@ -1,0 +1,23 @@
+{% extends 'main/accounts/main.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block button %}
+<a href="{% url 'register' %}" class="btn btn-primary">Sign up</a>
+{% endblock %}
+
+{% block content %}
+<h2>Login</h2>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <p class="mb-0">Username</p>
+    <input type="text" name="username">
+    <p class="mb-0">Password</p>
+    <input type="password" name="password">
+    <hr>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+{% endblock %}

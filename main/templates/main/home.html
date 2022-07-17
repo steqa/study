@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<h2>Home</h2>
+{% for room in rooms %}
+<hr>
+<p class="mb-0">@{{ room.host }}</p>
+<a href="{% url 'room' room.pk %}" class="text-decoration-none">{{ room.title }}</a>
+{% if room.description %}
+<p>{{ room.description }}</p>
+{% endif %}
+<p>{{ room.topic }}</p>
+{% if room.host == request.user %}
+<a href="{% url 'room-update' room.pk %}" class="btn btn-primary">Update</a>
+<a href="{% url 'room-delete' room.pk %}" class="btn btn-danger">Delete</a>
+{% endif %}
+{% endfor %}
+{% endblock %}

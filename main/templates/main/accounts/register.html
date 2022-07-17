@@ -1,0 +1,23 @@
+{% extends 'main/accounts/main.html' %}
+
+{% block title %}
+Sign up
+{% endblock %}
+
+{% block button %}
+<a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+{% endblock %}
+
+{% block content %}
+<h2>Sign up</h2>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    {% for f in form %}
+        <p class="mb-0">{{ f.label }}</p>
+        {{ f }}
+    {% endfor %}
+    <hr>
+    <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+{% endblock %}

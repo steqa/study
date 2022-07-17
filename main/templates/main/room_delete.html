@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Delete room
+{% endblock %}
+
+{% block content %}
+<h2>Delete room</h2>
+<hr>
+<form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete the "{{ room.title }}" room?</p>
+    <hr>
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a href="{% url 'home' %}" class="btn btn-danger">Cancel</a>
+</form>
+{% endblock %}
